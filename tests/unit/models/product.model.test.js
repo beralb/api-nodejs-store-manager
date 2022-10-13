@@ -1,13 +1,14 @@
 // const { expect } = require('chai');
 const expect = require('chai').expect;
 const sinon = require('sinon');
+
 const productModelModule = require('../../../src/models')
 const productModel = productModelModule.productModel;
 
 
 const connection = require('../../../src/models/connection');
 
-describe('Testes da Camada Model', function () {
+describe('Testes da Camada Product Model', function () {
   describe('Lista todos produtos', function () {
     beforeEach(function () {
       const mockedProducts = [

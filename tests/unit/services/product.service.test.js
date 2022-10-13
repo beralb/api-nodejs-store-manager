@@ -1,51 +1,32 @@
-// const { expect } = require('chai');
-const expect = require('chai').expect;
+const { expect } = require('chai');
 const sinon = require('sinon');
 
-const productModelModule = require('../../../src/models')
-const productModel = productModelModule.productModel;
-
-const mockedProductsModule = require('../mocks/product.mock')
-const mockProducts = mockedProductsModule.mockProducts;
-
+const { mockProducts } = require('../mocks/product.mock');
 
 describe('Testes da Camada Product Service', function () {
+  beforeEach(function () {
+    const { productModel } = require('../../../src/models');
+    sinon.stub(productModel, 'modelProductsGetAll').resolves(mockProducts);
+  });
+
+  afterEach(function () {
+    sinon.restore();
+  });
+  
   describe('Lista todos produtos', function () {
-    beforeEach(function () {
-      sinon.stub(productModel, 'modelProductsGetAll').resolves(mockProducts);
-    });
-
-    afterEach(function () {
-      sinon.restore();
-    });
-
     it('com o tipo array', async function () {
-      const productServiceModule = require('../../../src/services')
-      const productService = productServiceModule.productService;
+      const { productService } = require('../../../src/services');
 
-      const response = await productService.serviceProductsGetAll();
-      // console.log(`Linha 42 ${response}`);
-      expect(response).to.be.a('array');
+      const products = await productService.serviceProductsGetAll();
+      expect(products).to.be.a('array');
+      expect(products.length).to.equal(2);
     });
 
     it('com sucesso', async function () {
-      const productServiceModule = require('../../../src/services')
-      const productService = productServiceModule.productService;
-
-      const expected = [
-        {
-          "id": 1,
-          "name": "Martelo de Thor"
-        },
-        {
-          "id": 2,
-          "name": "Traje de encolhimento"
-        },
-      ];
-
-      const response = await productService.serviceProductsGetAll();
-      expect(response).to.deep.equal(expected);
+      const { productService } = require('../../../src/services');
+      
+      const products = await productService.serviceProductsGetAll();
+      expect(products).to.deep.equal(mockProducts);
     });
   })
-
 })

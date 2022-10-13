@@ -9,12 +9,12 @@ const mockProducts = [
   },
 ];
 
-const returnService = {
+const returnServiceMock = {
   status: 200,
   message: mockProducts
 }
 
 module.exports = {
   mockProducts,
-  returnService,
+  returnServiceMock,
 }
