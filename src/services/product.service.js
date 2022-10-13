@@ -1,7 +1,4 @@
-// const { productModel } = require('../models');
-const models = require('../models/product.model')
-
-// const { modelProductsGetAll, modelProductsGetById } = productModel;
+const models = require('../models/product.model');
 
 const serviceProductsGetAll = async () => {
   const result = await models.modelProductsGetAll();
