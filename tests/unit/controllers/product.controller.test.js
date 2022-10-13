@@ -2,56 +2,66 @@ const { expect } = require('chai');
 const chai = require('chai');
 const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
-const { returnServiceMock } = require('../mocks/product.mock');
+
+const { returnServiceMock } = require('../../unit/mocks/product.mock');
+
 const productService = require('../../../src/services/product.service');
+
+const productController = require('../../../src/controllers/product.controller');
 
 chai.use(sinonChai);
 
 describe('Testes da Camada Product Controller', function () {
-  beforeEach(function () {
-    sinon.stub(productService, 'serviceProductsGetAll').resolves(returnServiceMock.message);
-  })
+  afterEach(sinon.restore);
   
-  afterEach(() => sinon.restore());
-
   describe('listagem de todos os produtos', function () {
+    beforeEach(function () {
+      sinon.stub(productService, 'serviceProductsGetAll').resolves(returnServiceMock)
+    })
+    
     it('Se lista todos os produtos', async function () {
-      const { productController: { controllerProductsGetAll } } = require('../../../src/controllers');
       
+      const req = {};
       const res = {};
-      res.status = sinon.stub().returns(res);
-      res.json = sinon.stub().returns(res);
       
-      await controllerProductsGetAll(null, res);
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      await productController.controllerProductsGetAll(req, res);
+      // console.log(`linha 58 - ${returnServiceMock}`);
 
       expect(res.status).to.have.been.calledOnceWith(200);
-      expect(res.json).to.have.been.calledOnceWith(returnServiceMock.message);
+      expect(res.json).to.have.been.calledOnceWith(returnServiceMock);
     });
   });
 });
 
-// describe('Testa controller de produtos', function () {
+
+// describe('Testes da Camada Product Controller', function () {
+//   beforeEach(function () {
+//     sinon.stub(productService, 'serviceProductsGetAll').resolves(returnServiceMock.message);
+//   })
+  
+//   afterEach(() => sinon.restore());
+
 //   describe('listagem de todos os produtos', function () {
 //     it('Se lista todos os produtos', async function () {
-//       const productServiceModule = require('../../../src/services');
-//       const productService = productServiceModule.productService;
-
-//       const res = {};
-//       const req = {};
+//       // const { productController: { controllerProductsGetAll } } = require('../../../src/controllers');      
       
+//       const res = {};
 //       res.status = sinon.stub().returns(res);
-//       res.json = sinon.stub().returns();
-//       sinon
-//         .stub(productService, 'serviceProductsGetAll')
-//         .resolves(returnService);
-
-//       await productController.controllerProductsGetAll({}, res);
+//       res.json = sinon.stub().returns(res);
+      
+//       // await controllerProductsGetAll(null, res);
+//       await controllerProductsGetAll(null, res);
 
 //       expect(res.status).to.have.been.calledOnceWith(200);
-//       expect(res.json).to.have.been.calledOnceWith(returnService.message);
+//       // expect(res.json).to.have.been.calledOnceWith(returnServiceMock.message);
 //     });
 //   });
+  
 // });
+
 
 // describe('Verificando controller Driver - Exercícios', function () {
 //   afterEach(sinon.restore);

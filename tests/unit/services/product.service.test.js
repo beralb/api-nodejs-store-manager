@@ -3,6 +3,8 @@ const sinon = require('sinon');
 
 const { mockProducts } = require('../mocks/product.mock');
 
+const { productService } = require('../../../src/services');
+
 describe('Testes da Camada Product Service', function () {
   beforeEach(function () {
     const { productModel } = require('../../../src/models');
@@ -15,7 +17,7 @@ describe('Testes da Camada Product Service', function () {
   
   describe('Lista todos produtos', function () {
     it('com o tipo array', async function () {
-      const { productService } = require('../../../src/services');
+      // const { productService } = require('../../../src/services');
 
       const products = await productService.serviceProductsGetAll();
       expect(products).to.be.a('array');
@@ -23,7 +25,7 @@ describe('Testes da Camada Product Service', function () {
     });
 
     it('com sucesso', async function () {
-      const { productService } = require('../../../src/services');
+      // const { productService } = require('../../../src/services');
       
       const products = await productService.serviceProductsGetAll();
       expect(products).to.deep.equal(mockProducts);
