@@ -1,11 +1,16 @@
 // const errorMessages = require('../helpers/errorMessages');
 // const statusCodes = require('../helpers/statusCodes')
 
-const productServiceModule = require('../services');
+// const productServiceModule = require('../services');
 
-const productService = productServiceModule.productService;
-const serviceProductsGetAll = productService.serviceProductsGetAll;
-const serviceProductsGetById = productService.serviceProductsGetById;
+// const productService = productServiceModule.productService;
+
+const { productService } = require('../services');
+
+// const serviceProductsGetAll = productService.serviceProductsGetAll;
+// const serviceProductsGetById = productService.serviceProductsGetById;
+
+const { serviceProductsGetAll, serviceProductsGetById } = productService;
 
 const controllerProductsGetAll = async (_req, res) => {
   const result = await serviceProductsGetAll();

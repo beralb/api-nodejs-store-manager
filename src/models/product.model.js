@@ -12,7 +12,7 @@ const modelProductsGetById = async (productId) => {
   console.log(`Model linha 12: ${productId}`);
   // const [[result]] = await connection.execute(
   const [[result]] = await connection.execute(
-    'SELECT * FROM products WHERE id = ?', [productId],
+    'SELECT * FROM StoreManager.products WHERE id = ?', [productId],
   );
   console.log(`Model linha 16: ${result}`);
   return result;
