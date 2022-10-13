@@ -3,6 +3,7 @@
 // const statusCodes = require('../helpers/statusCodes');
 
 const productModelModule = require('../models');
+
 const productModel = productModelModule.productModel;
 const modelProductsGetAll = productModel.modelProductsGetAll;
 const modelProductsGetById = productModel.modelProductsGetById;
@@ -22,4 +23,4 @@ const serviceProductsGetById = async (productId) => {
 module.exports = {
   serviceProductsGetAll,
   serviceProductsGetById,
-}
+};

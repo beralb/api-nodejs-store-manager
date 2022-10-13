@@ -1,9 +1,9 @@
-/* const expect = require('chai').expect;
+const expect = require('chai').expect;
 const chai = require('chai');
 const sinon = require('sinon');
-// const sinonChai = require('sinon-chai');
+const sinonChai = require('sinon-chai');
 
-// chai.use(sinonChai);
+chai.use(sinonChai);
 
 
 // const { returnService } = require('../mock/products.mock');
@@ -28,7 +28,9 @@ describe('Testa controller de produtos', function () {
       
       res.status = sinon.stub().returns(res);
       res.json = sinon.stub().returns();
-      sinon.stub(productService, 'serviceProductsGetAll').resolves(returnService);
+      sinon
+        .stub(productService, 'serviceProductsGetAll')
+        .resolves(returnService);
 
       await productController.controllerProductsGetAll({}, res);
 
@@ -36,4 +38,4 @@ describe('Testa controller de produtos', function () {
       expect(res.json).to.have.been.calledOnceWith(returnService.message);
     });
   });
-}); */
+});

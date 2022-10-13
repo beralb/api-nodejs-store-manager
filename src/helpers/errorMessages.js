@@ -1,4 +1,4 @@
 module.exports = {
   // notFoundData: 'Não foram localizados dados!',
-  notFoundData: "Product not found",
-}
+  notFoundData: 'Product not found',
+};
