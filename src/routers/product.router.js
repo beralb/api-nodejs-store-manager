@@ -1,9 +1,5 @@
 const express = require('express');
 
-// const productControllerModule = require('../controllers');
-
-// const productController = productControllerModule.productController;
-
 const { productController } = require('../controllers');
 
 const router = express.Router();
@@ -11,5 +7,7 @@ const router = express.Router();
 router.get('/', productController.controllerProductsGetAll);
 
 router.get('/:id', productController.controllerProductsById);
+
+router.post('/', productController.controllerProductsCreate);
 
 module.exports = router;
