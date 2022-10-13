@@ -3,12 +3,12 @@ const chai = require('chai');
 const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
 const { returnServiceMock } = require('../mocks/product.mock');
+const productService = require('../../../src/services/product.service');
 
 chai.use(sinonChai);
 
 describe('Testes da Camada Product Controller', function () {
   beforeEach(function () {
-    const productService = require('../../../src/services/product.service');
     sinon.stub(productService, 'serviceProductsGetAll').resolves(returnServiceMock.message);
   })
   
