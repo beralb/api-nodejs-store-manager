@@ -2,26 +2,19 @@
 const expect = require('chai').expect;
 const sinon = require('sinon');
 
-const productModelModule = require('../../../src/models')
-const productModel = productModelModule.productModel;
+const productModel = require('../../../src/models/product.model')
 
+const productMocks = require('../mocks/product.mock');
+const mockProducts = productMocks.mockProducts;
+const productMock = mockProducts[0];
 
 const connection = require('../../../src/models/connection');
 
 describe('Testes da Camada Product Model', function () {
+  
   describe('Lista todos produtos', function () {
     beforeEach(function () {
-      const mockedProducts = [
-        {
-          id: 1,
-          name: "Martelo de Thor"
-        },
-        {
-          id: 2,
-          name: "Traje de encolhimento"
-        },
-      ];
-      sinon.stub(connection, 'execute').resolves([mockedProducts]);
+      sinon.stub(connection, 'execute').resolves([mockProducts]);
     });
 
     afterEach(function () {
@@ -51,43 +44,31 @@ describe('Testes da Camada Product Model', function () {
     });
   })
 
+  describe('Encontra um produto pelo id', function () {
+    beforeEach(function () {
+      sinon.stub(connection, 'execute').resolves([[productMock]]);
+    });
 
-  /* describe('Encontra um produto pelo id', function () {
-    const expected = {
-      "id": 1,
-      "name": "Martelo de Thor"
-    }
+    afterEach(function () {
+      connection.execute.restore();
+    });
 
     const searchedId = 1;
 
-    before(async function () {
-      const searchedDriverMock = [
-        {
-          "id": 1,
-          "name": "Martelo de Thor"
-        }
-      ];
-
-      sinon.stub(connection, 'execute').resolves([searchedDriverMock]);
-    });
-
     it('Retorna o produto como objeto', async function () {
-      sinon.stub(connection, 'execute').resolves([expected]);
 
-      const result = await productsModel.getById(searchedId);
+      const product = await productModel.modelProductsGetById(Number(searchedId));
 
-      expect(result).to.be.a('object');
+      expect(product).to.be.a('object');
     });
 
     it('com sucesso', async function () {
 
-      const response = await productsModel.findById(searchedId);
+      const response = await productModel.modelProductsGetById(searchedId);
 
-      expect(response).to.deep.equal(expected[0]);
+      expect(response).to.deep.equal(productMock);
     });
-    after(async function () {
-      connection.execute.restore();
-    });
-  }); */
+
+  });
   
 })
