@@ -1,6 +1,6 @@
 const express = require('express');
 
-const validateProductName = require('../middlewares/validateProductName');
+const validateProductInsert = require('../middlewares/validateProductInsert');
 
 const productController = require('../controllers/product.controller');
 
@@ -12,7 +12,7 @@ router.get('/:id', productController.controllerProductsById);
 
 router.post(
   '/',
-  validateProductName,
+  validateProductInsert,
   productController.controllerProductsCreate,
 );
 
