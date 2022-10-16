@@ -10,6 +10,8 @@ router.get('/', productController.controllerProductsGetAll);
 
 router.get('/:id', productController.controllerProductsById);
 
+router.put('/:id', validateProductInsert, productController.controllerUpdateProductById);
+
 router.post(
   '/',
   validateProductInsert,

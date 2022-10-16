@@ -36,8 +36,21 @@ const controllerProductsCreate = async (req, res) => {
   }
 };
 
+const controllerUpdateProductById = async (req, res) => {
+  const { name } = req.body;
+  const productId = Number(req.params.id);
+  const result = await productService.serviceUpdateProductById(productId, name);
+
+  if (!result) {
+    res.status(404).json({ message: 'Product not found' });
+  } else {
+    res.status(200).json(result);
+  }
+};
+
 module.exports = {
   controllerProductsGetAll,
   controllerProductsById,
   controllerProductsCreate,
+  controllerUpdateProductById,
 };

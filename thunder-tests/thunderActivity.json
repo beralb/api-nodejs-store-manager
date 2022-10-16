@@ -97,5 +97,43 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "361f126e-9cca-4be4-a544-08c10219bcb5",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/1",
+    "url": "http://localhost:3000/products/1",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2022-10-16T17:15:07.478Z",
+    "modified": "2022-10-16T17:56:58.734Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Martelo do Jean\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "d6c99150-55ea-43fb-b314-ce6d5bbe4677",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/999",
+    "url": "http://localhost:3000/products/999",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2022-10-16T17:52:57.125Z",
+    "modified": "2022-10-16T17:57:08.014Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Martelo do Jean\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
