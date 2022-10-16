@@ -1,4 +1,22 @@
+const camelize = require('camelize');
 const connection = require('./connection');
+
+const modelSalesGetAll = async () => {
+  const [result] = await connection.execute(
+    'SELECT sales_products.sale_id, sales.date, sales_products.product_id, sales_products.quantity FROM StoreManager.sales_products INNER JOIN StoreManager.products ON sales_products.product_id = products.id INNER JOIN StoreManager.sales ON sales.id = sales_products.sale_id ORDER BY StoreManager.sales_products.sale_id, StoreManager.sales_products.product_id',
+  );
+  // throw new Error("whatever");
+  return camelize(result);
+  // return result;
+};
+
+const modelSalesGetById = async (productId) => {
+  const [result] = await connection.execute(
+    'SELECT sales_products.product_id, sales_products.quantity, sales.date FROM StoreManager.sales_products INNER JOIN StoreManager.products ON sales_products.product_id = products.id INNER JOIN StoreManager.sales ON sales.id = sales_products.sale_id WHERE sales_products.sale_id = ? ORDER BY StoreManager.sales_products.sale_id, StoreManager.sales_products.product_id', [productId],
+  );
+
+  return camelize(result);
+};
 
 const insertProductDB = async (insertId, sale) => {
   sale.forEach(async (eachSale) => {
@@ -25,9 +43,9 @@ const validateProductId = async (sale) => {
 
   const existingIds = result.map((eachId) => eachId.id);
 
-  const comparing = saleProductsIds.some((eacheNumber) => !existingIds.includes(eacheNumber));
+  const comparingIds = saleProductsIds.some((eacheNumber) => !existingIds.includes(eacheNumber));
 
-  if (comparing) {
+  if (comparingIds) {
     return false;
   }
   return true;
@@ -45,5 +63,6 @@ const modelSalesInsert = async (sale) => {
 
 module.exports = {
   modelSalesInsert,
-  validateProductId,
+  modelSalesGetAll,
+  modelSalesGetById,
 };

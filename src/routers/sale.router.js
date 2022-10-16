@@ -12,4 +12,11 @@ router.post(
   saleController.controllerSaleCreate,
 );
 
+router.get(
+  '/',
+  saleController.controllerSalesGetAll,
+);
+
+router.get('/:id', saleController.controllerSalesById);
+
 module.exports = router;
