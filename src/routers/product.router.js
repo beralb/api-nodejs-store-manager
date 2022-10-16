@@ -12,6 +12,8 @@ router.get('/:id', productController.controllerProductsById);
 
 router.put('/:id', validateProductInsert, productController.controllerUpdateProductById);
 
+router.delete('/:id', productController.controllerDeleteProductById);
+
 router.post(
   '/',
   validateProductInsert,

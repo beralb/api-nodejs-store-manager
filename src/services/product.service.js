@@ -24,9 +24,16 @@ const serviceUpdateProductById = async (productId, dataToUpdate) => {
   return updatedProduct;
 };
 
+const serviceDeleteProductById = async (productId) => {
+  const affectedRows = await productModel.modelDeleteProductById(productId);
+
+  return affectedRows;
+};
+
 module.exports = {
   serviceProductsGetAll,
   serviceProductsGetById,
   serviceProductsInsert,
   serviceUpdateProductById,
+  serviceDeleteProductById,
 };

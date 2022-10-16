@@ -42,11 +42,11 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3000/products/2",
-    "url": "http://localhost:3000/products",
+    "url": "http://localhost:3000/products/999",
     "method": "GET",
     "sortNum": 0,
     "created": "2022-10-13T00:28:18.226Z",
-    "modified": "2022-10-14T21:12:42.307Z",
+    "modified": "2022-10-16T19:05:11.146Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -127,6 +127,44 @@
     "sortNum": 0,
     "created": "2022-10-16T17:52:57.125Z",
     "modified": "2022-10-16T17:57:08.014Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Martelo do Jean\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "f52d4182-580d-45a6-b137-001f952405d2",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/3",
+    "url": "http://localhost:3000/products/3",
+    "method": "DELETE",
+    "sortNum": 0,
+    "created": "2022-10-16T18:57:44.341Z",
+    "modified": "2022-10-16T18:57:44.392Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Martelo do Jean\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "5a252800-8d9f-46d8-a6ec-4b261f04759a",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/999",
+    "url": "http://localhost:3000/products/999",
+    "method": "DELETE",
+    "sortNum": 0,
+    "created": "2022-10-16T18:57:58.298Z",
+    "modified": "2022-10-16T18:57:58.345Z",
     "headers": [],
     "params": [],
     "body": {
