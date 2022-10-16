@@ -3,7 +3,14 @@ const connection = require('./connection');
 
 const modelSalesGetAll = async () => {
   const [result] = await connection.execute(
-    'SELECT sales_products.sale_id, sales.date, sales_products.product_id, sales_products.quantity FROM StoreManager.sales_products INNER JOIN StoreManager.products ON sales_products.product_id = products.id INNER JOIN StoreManager.sales ON sales.id = sales_products.sale_id ORDER BY StoreManager.sales_products.sale_id, StoreManager.sales_products.product_id',
+    `SELECT 
+      sales_products.sale_id, sales.date, sales_products.product_id, sales_products.quantity
+      FROM StoreManager.sales_products
+      INNER JOIN StoreManager.products
+      ON sales_products.product_id = products.id
+      INNER JOIN StoreManager.sales
+      ON sales.id = sales_products.sale_id
+      ORDER BY StoreManager.sales_products.sale_id, StoreManager.sales_products.product_id`,
   );
   // throw new Error("whatever");
   return camelize(result);
