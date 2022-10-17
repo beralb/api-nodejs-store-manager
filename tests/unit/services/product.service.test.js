@@ -17,7 +17,6 @@ describe('Testes da Camada Product Service', function () {
   
   describe('Lista todos produtos', function () {
     it('com o tipo array', async function () {
-      // const { productService } = require('../../../src/services');
 
       const products = await productService.serviceProductsGetAll();
       expect(products).to.be.a('array');

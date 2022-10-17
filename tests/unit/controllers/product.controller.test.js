@@ -82,25 +82,7 @@ describe('Testes da Camada Product Controller', function () {
       expect(res.status).to.have.been.calledOnceWith(201);
     });
 
-    /* it('é chamado o json com o motorista cadastrado', async function () {
-      const res = {};
-      const req = {
-        body: {
-          name: 'Flavio',
-          carIds: [1, 2],
-        },
-      };
-
-      res.status = sinon.stub().returns(res);
-      res.json = sinon.stub().returns();
-
-      await driverController.createDriver(req, res);
-
-      expect(res.json).to.have.been.calledWith(createdDriverWithCars);
-    }); */
-
   });
-
 
 });
 
