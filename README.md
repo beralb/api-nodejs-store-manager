@@ -1,5 +1,5 @@
 <h1 align="center">Node.js Store Manager</h1>
-<h3 align="center">This was a project developed in the back-end module of web development of <a href=https://www.betrybe.com>Trybe</a></h3>
+<h3 align="center">This was a project developed in the back-end module of Web Development Course of <a href=https://www.betrybe.com>Trybe</a></h3>
 <br>
 
 🔭 In this application I was able to create an API exercising:
