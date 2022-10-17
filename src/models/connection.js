@@ -6,9 +6,6 @@ const connection = mysql.createPool({
   user: 'root',
   password: 'password',
   database: 'StoreManager',
-  // waitForConnections: MYSQL_WAIT_FOR_CONNECTIONS,
-  // connectionLimit: MYSQL_CONNECTION_LIMIT,
-  // queueLimit: MYSQL_QUEUE_LIMIT,
 });
 
 module.exports = connection;

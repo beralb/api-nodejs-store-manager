@@ -21,14 +21,11 @@ const controllerSalesById = async (req, res) => {
 };
 
 const controllerSaleCreate = async (req, res) => {
-  // console.log(`Controller linha 4: ${req.body}`);
   const products = req.body;
-  // console.log(`Controller linha 6: ${products}`);
 
   const saleObject = await saleService.serviceSalesInsert(products);
 
-  if (!saleObject) {
-    // console.log(`SaleObject retornado: ${saleObject}`);    
+  if (!saleObject) { 
     res.status(404).json({ message: 'Product not found' });
   } else {
     res.status(201).json(saleObject);
