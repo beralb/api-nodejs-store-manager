@@ -1,4 +1,4 @@
-<h1 align="center">MySQL One For All</h1>
+<h1 align="center">Node.js Store Manager</h1>
 <h3 align="center">This was a project developed in the back-end module of web development of <a href=https://www.betrybe.com>Trybe</a></h3>
 
 - 🔭 In this application I was able to reate an API exercising:
