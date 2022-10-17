@@ -2,7 +2,7 @@
 <h3 align="center">This was a project developed in the back-end module of web development of <a href=https://www.betrybe.com>Trybe</a></h3>
 <br>
 
-🔭 In this application I was able to reate an API exercising:
+🔭 In this application I was able to create an API exercising:
 
 - Connect the application with a #MySQL database;
 - Exercise the entire #CRUD process;
